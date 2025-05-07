@@ -1,0 +1,47 @@
+#Simple Calculator
+
+import sys
+
+#Display Menu
+print("--Menu--")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+print("5. Exit")
+
+#User will enter a choice 
+    
+choice = int(input("Enter your choice (1-5): "))
+
+#if else statements
+
+if choice == 1:
+    num1 = float(input("Enter a first number: "))
+    num2 = float(input("Enter a second number: "))
+    result = round(num1 + num2)
+    print("Result: ". result)
+
+elif choice == 2:
+    num1 = float(input("Enter a first number: "))
+    num2 = float(input("Enter a second number: "))
+    result = round(num1 - num2)
+    print("Result: ". result)
+
+elif choice == 3:
+    num1 = float(input("Enter a first number: "))
+    num2 = float(input("Enter a second number: "))
+    result = round(num1 * num2)
+    print("Result: ". result)
+
+elif choice == 4:
+    num1 = float(input("Enter a first number: "))
+    num2 = float(input("Enter a second number: "))
+    result = round(num1 / num2)
+    print("Result: ". result)
+    
+elif choice == 5:
+    print("Exiting...Goodbye!")
+    sys.exit()
+else:
+    print(f"{choice} is not a valid operator")

@@ -1,0 +1,23 @@
+#Guessing game
+import random
+
+print("--Menu--")
+print("1. Play Number Guessing Game")
+print("2. Exit")
+
+choice = int(input('Enter your choice (1/2): '))
+
+number_to_guess = random.randrange(1, 100)
+chances = 3
+guess_counter = 0
+
+while guess_counter < chances:
+    guess_counter += 1
+    guess = int(input(("Guess the number from 1-100: ")))
+    
+    if guess == number_to_guess:
+        print("Congrats! You have guessed it correctly.")
+        break
+    
+    elif guess != number_to_guess:
+        print(f"You have guessed it wrong. You have {chances-guess_counter} left. ")

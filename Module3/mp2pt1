@@ -1,47 +1,50 @@
-#Simple Calculator
-
 import sys
 
-#Display Menu
-print("--Menu--")
-print("1. Add")
-print("2. Subtract")
-print("3. Multiply")
-print("4. Divide")
-print("5. Exit")
+def calculator():
+    while True:
+        # Display Menu
+        print("\n-- Menu --")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Exit")
 
-#User will enter a choice 
-    
-choice = int(input("Enter your choice (1-5): "))
+        try:
+            choice = int(input("Enter your choice (1-5): "))
+        except ValueError:
+            print("Invalid input. Please enter a number from 1 to 5.")
+            continue
 
-#if else statements
+        if choice == 5:
+            print("Exiting... Goodbye!")
+            sys.exit()
 
-if choice == 1:
-    num1 = float(input("Enter a first number: "))
-    num2 = float(input("Enter a second number: "))
-    result = round(num1 + num2)
-    print("Result: ". result)
+        if choice in [1, 2, 3, 4]:
+            try:
+                num1 = float(input("Enter the first number: "))
+                num2 = float(input("Enter the second number: "))
+            except ValueError:
+                print("Invalid number. Please enter numeric values.")
+                continue
 
-elif choice == 2:
-    num1 = float(input("Enter a first number: "))
-    num2 = float(input("Enter a second number: "))
-    result = round(num1 - num2)
-    print("Result: ". result)
+            if choice == 1:
+                result = round(num1 + num2, 2)
+                print(f"Result: {result}")
+            elif choice == 2:
+                result = round(num1 - num2, 2)
+                print(f"Result: {result}")
+            elif choice == 3:
+                result = round(num1 * num2, 2)
+                print(f"Result: {result}")
+            elif choice == 4:
+                if num2 == 0:
+                    print("Error: Cannot divide by zero.")
+                else:
+                    result = round(num1 / num2, 2)
+                    print(f"Result: {result}")
+        else:
+            print(f"{choice} is not a valid option. Please choose between 1 and 5.")
 
-elif choice == 3:
-    num1 = float(input("Enter a first number: "))
-    num2 = float(input("Enter a second number: "))
-    result = round(num1 * num2)
-    print("Result: ". result)
-
-elif choice == 4:
-    num1 = float(input("Enter a first number: "))
-    num2 = float(input("Enter a second number: "))
-    result = round(num1 / num2)
-    print("Result: ". result)
-    
-elif choice == 5:
-    print("Exiting...Goodbye!")
-    sys.exit()
-else:
-    print(f"{choice} is not a valid operator")
+if __name__ == "__main__":
+    calculator()
